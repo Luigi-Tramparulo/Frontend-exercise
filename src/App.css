@@ -3,5 +3,10 @@
   color: white;
   border-bottom: 2px solid red ;
 }
+.button-crono{
+  display: block;
+  margin-top: 1rem;
+  padding: 0.3rem;
+}
 
 
