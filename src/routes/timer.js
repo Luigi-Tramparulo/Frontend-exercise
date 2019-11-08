@@ -43,7 +43,7 @@ class Timer extends React.Component {
     const state = !this.state.stopped
     const label = state ? 'start' : 'stop'
     this.setState(
-      { stopped: !this.state.stopped, buttonstate: label }
+      { stopped: state, buttonstate: label }
     )
   }
 
