@@ -12,14 +12,15 @@ class Timer extends React.Component {
       buttonstate: "start"
     }
   }
+
   tickSecs = () => {
     this.setState((precState) => {
       return {
         secs: precState.secs + 1,
       }
-
     })
   }
+
   tickMin = () => {
     this.setState((precState) => {
       return {
@@ -27,27 +28,27 @@ class Timer extends React.Component {
       }
     })
   }
+
   tickMillisecs = () => {
     this.setState((precState) => {
       if (!this.state.stopped) {
         return {
           millisecs: precState.millisecs + 1,
-          buttonstate: "stop"
-        }
-      } else {
-        return {
-          buttonstate: "start"
         }
       }
     })
   }
-  toggleWatch = () => this.setState(
-    { stopped: !this.state.stopped }
-  )
+
+  toggleWatch = () => {
+    const state = !this.state.stopped
+    const label = state ? 'start' : 'stop'
+    this.setState(
+      { stopped: !this.state.stopped, buttonstate: label }
+    )
+  }
 
   startWatch() {
     setInterval(this.tickMillisecs, 10);
-
   }
 
   clearWatch = () => {
@@ -56,7 +57,6 @@ class Timer extends React.Component {
         millisecs: 0,
         secs: 0,
         minutes: 0,
-        buttonstate: "start"
       }
     )
   }
@@ -66,9 +66,8 @@ class Timer extends React.Component {
   }
 
   componentDidUpdate() {
-    const { millisecs, secs, minutes, stopped, buttonstate } = this.state
+    const { millisecs, secs } = this.state
     if (secs > 59) {
-
       this.setState({ secs: 0 })
       this.tickMin()
     }
@@ -76,10 +75,7 @@ class Timer extends React.Component {
       this.setState({ millisecs: 0 })
       this.tickSecs()
     }
-
   }
-
-
 
   render() {
     let { secs, millisecs, minutes } = this.state;
