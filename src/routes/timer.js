@@ -8,7 +8,8 @@ class Timer extends React.Component {
       millisecs: 0,
       minutes: 0,
       secs: 0,
-      stopped: false
+      stopped: true,
+      buttonstate: "start"
     }
   }
   tickSecs = () => {
@@ -31,11 +32,18 @@ class Timer extends React.Component {
       if (!this.state.stopped) {
         return {
           millisecs: precState.millisecs + 1,
+          buttonstate: "stop"
+        }
+      } else {
+        return {
+          buttonstate: "start"
         }
       }
     })
   }
-  toggleWatch = () => this.setState({ stopped: !this.state.stopped })
+  toggleWatch = () => this.setState(
+    { stopped: !this.state.stopped }
+  )
 
   startWatch() {
     setInterval(this.tickMillisecs, 10);
@@ -47,7 +55,8 @@ class Timer extends React.Component {
       {
         millisecs: 0,
         secs: 0,
-        minutes: 0
+        minutes: 0,
+        buttonstate: "start"
       }
     )
   }
@@ -57,7 +66,7 @@ class Timer extends React.Component {
   }
 
   componentDidUpdate() {
-    const { millisecs, secs, minutes, stopped } = this.state
+    const { millisecs, secs, minutes, stopped, buttonstate } = this.state
     if (secs > 59) {
 
       this.setState({ secs: 0 })
@@ -88,7 +97,7 @@ class Timer extends React.Component {
     return (<React.Fragment>
       <h2>{time}</h2>
       <div>
-        <button className="button-crono" onClick={this.toggleWatch}>Start</button>
+        <button className="button-crono" onClick={this.toggleWatch}>{this.state.buttonstate}</button>
         <button className="button-crono" onClick={this.clearWatch}>Clear</button>
       </div>
     </React.Fragment>
