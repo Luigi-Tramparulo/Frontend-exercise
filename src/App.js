@@ -24,12 +24,12 @@ function App() {
           </ul>
 
         </header>
-        <section>
+        <div>
           <Switch>
             <Route exact path="/clock" component={Clock} />
             <Route exact path="/timer" component={Timer} />
           </Switch>
-        </section>
+        </div>
       </BrowserRouter>
     </div>
   );

@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import logo from '../img/cronometro.png';
 
 class Timer extends React.Component {
   constructor(props) {
@@ -91,7 +92,10 @@ class Timer extends React.Component {
     }
     const time = `${minutes} : ${secs}.${millisecs}`;
     return (<React.Fragment>
-      <h2>{time}</h2>
+    <div id="crono">
+       <img className="header-clock" src={logo}/>
+      <span className="header-timer">{time}</span>
+    </div>
       <div>
         <button className="button-crono" onClick={this.toggleWatch}>{this.state.buttonstate}</button>
         <button className="button-crono" onClick={this.clearWatch}>Clear</button>
