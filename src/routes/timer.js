@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import logo from '../img/cronometro.png';
 
-class Timer extends React.Component {
+class Timer extends Component {
   constructor(props) {
     super(props)
 
@@ -91,16 +91,17 @@ class Timer extends React.Component {
       minutes = zero + minutes;
     }
     const time = `${minutes} : ${secs}.${millisecs}`;
-    return (<React.Fragment>
-    <div id="crono">
-       <img className="header-clock" src={logo}/>
-      <span className="header-timer">{time}</span>
-    </div>
+    return (
+    <div id="crono-container">
+      <div id="crono">
+        <img className="header-clock" src={logo} alt="chronometer"/>
+        <span className="header-timer">{time}</span>
+      </div>
       <div>
         <button className="button-crono" onClick={this.toggleWatch}>{this.state.buttonstate}</button>
         <button className="button-crono" onClick={this.clearWatch}>Clear</button>
       </div>
-    </React.Fragment>
+    </div>
     )
   }
 }
