@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import logo from '../../img/cronometro.png'
-import './crono.css'
+import style from './crono.module.scss'
 
 class Crono extends Component {
   constructor(props) {
@@ -93,14 +93,14 @@ class Crono extends Component {
     }
     const time = `${minutes} : ${secs}.${millisecs}`;
     return (
-    <div id="crono-container">
-      <div id="crono">
-        <img className="header-clock" src={logo} alt="chronometer"/>
-        <span className="header-timer">{time}</span>
+    <div className={style.cronoContainer}>
+      <div className={style.crono}>
+        <img className={style.headerClock} src={logo} alt="chronometer"/>
+        <span className={style.headerTime}>{time}</span>
       </div>
-      <div id="crono-buttons-container">
-        <button className="button-crono" onClick={this.toggleWatch}>{this.state.buttonstate}</button>
-        <button className="button-crono" onClick={this.clearWatch}>Clear</button>
+      <div className={style.cronoButtonsContainer} >
+        <button className={style.buttonCrono} onClick={this.toggleWatch}>{this.state.buttonstate}</button>
+        <button className={style.buttonCrono} onClick={this.clearWatch}>Clear</button>
       </div>
     </div>
     )

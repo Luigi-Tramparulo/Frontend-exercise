@@ -8,30 +8,40 @@
        url('/fonts/DS-DIGIB.svg') format('svg'); /* Legacy iOS */
 }
 
-.button-crono{
-  display: block;
-  margin: 1rem;
-  padding: 0.3rem;
-}
-.header-timer{
-  font-family: 'DS-DIGIB';
-  font-size: 2rem;
-  position: absolute;
-  bottom: 195px;
-  left: 85px;
-}
-#crono-container {
+.cronoContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .crono {
+    width: 300px;
+    position: relative;
+
+    .headerClock {
+      width: 300px;
+    }
+
+    .headerTime {
+      font-family: 'DS-DIGIB';
+      font-size: 2rem;
+      position: absolute;
+      bottom: 195px;
+      left: 85px;
+    }
+  }
+
+  .cronoButtonsContainer {
+    display: flex;
+
+    .buttonCrono {
+      display: block;
+      margin: 1rem;
+      padding: 0.3rem;
+    }
+  }
 }
-#crono-buttons-container {
-  display: flex;
-}
-#crono{
-  width: 300px;
-  position: relative
-}
-.header-clock{
-  width: 300px;
-}
+
+
+
+
+
