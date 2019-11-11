@@ -1,8 +1,12 @@
 /* GLOBAL STYLE */
 
 @font-face {
-  font-family: timerFont;
-  src: url(/src/fonts/DS-DIGIB.woff);
+  font-family: 'DS-DIGIB';
+  src: url('/fonts/DS-DIGIB.eot'); /* IE9 */
+  src: url('/fonts/DS-DIGIB.woff2') format('woff2'), /* Browser Super Moderni */
+       url('/fonts/DS-DIGIB.woff') format('woff'), /* Browser Moderni */
+       url('/fonts/DS-DIGIB.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/DS-DIGIB.svg') format('svg'); /* Legacy iOS */
 }
 
 /* *************************************** */
@@ -18,8 +22,7 @@
   padding: 0.3rem;
 }
 .header-timer{
-  font-family: timerFont;
-  font-weight: bold;
+  font-family: 'DS-DIGIB';
   font-size: 1.3rem;
   position: absolute;
   bottom: 160px;
@@ -32,7 +35,6 @@
 }
 .header-clock{
     width: 250px;
-
 }
 
 
