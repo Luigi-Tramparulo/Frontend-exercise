@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import logo from '../../img/cronometro.png'
+import './crono.css'
 
 class Crono extends Component {
   constructor(props) {

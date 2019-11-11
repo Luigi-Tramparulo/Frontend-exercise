@@ -1,47 +1,8 @@
-/* GLOBAL STYLE */
-
-@font-face {
-  font-family: 'DS-DIGIB';
-  src: url('/fonts/DS-DIGIB.eot'); /* IE9 */
-  src: url('/fonts/DS-DIGIB.woff2') format('woff2'), /* Browser Super Moderni */
-       url('/fonts/DS-DIGIB.woff') format('woff'), /* Browser Moderni */
-       url('/fonts/DS-DIGIB.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/DS-DIGIB.svg') format('svg'); /* Legacy iOS */
-}
-
-/* *************************************** */
-
 .App-header {
   font-size: calc(10px + 2vmin);
   color: white;
   border-bottom: 2px solid red ;
 }
-.button-crono{
-  display: block;
-  margin: 1rem;
-  padding: 0.3rem;
-}
-.header-timer{
-  font-family: 'DS-DIGIB';
-  font-size: 2rem;
-  position: absolute;
-  bottom: 195px;
-  left: 85px;
-}
-#crono-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-#crono-buttons-container {
-  display: flex;
-}
-#crono{
-  width: 300px;
-  position: relative
-}
-.header-clock{
-  width: 300px;
-}
+
 
 
