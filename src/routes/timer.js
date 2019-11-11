@@ -97,7 +97,7 @@ class Timer extends Component {
         <img className="header-clock" src={logo} alt="chronometer"/>
         <span className="header-timer">{time}</span>
       </div>
-      <div>
+      <div id="crono-buttons-container">
         <button className="button-crono" onClick={this.toggleWatch}>{this.state.buttonstate}</button>
         <button className="button-crono" onClick={this.clearWatch}>Clear</button>
       </div>
