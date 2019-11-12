@@ -6,7 +6,7 @@ class Time extends Component {
   constructor(props) {
     super(props)
 
-    this.toggleWatch= this.toggleWatch.bind(this);
+    this.toggleWatch = this.toggleWatch.bind(this);
 
     this.state = {
       timestamp: Date.now(),
@@ -28,19 +28,20 @@ class Time extends Component {
   startWatch() {
     this.interval = setInterval(this.tick, this.props.secs * 1000);
   }
-  toggleWatch(e){
-    this.setState((state)=>{
-        this.state.stopped ? this.startWatch() : clearInterval(this.interval);
-        return {stopped : ! state.stopped}
+  toggleWatch(e) {
+    this.setState((state) => {
+      this.state.stopped ? this.startWatch() : clearInterval(this.interval);
+      return { stopped: !state.stopped }
     })
-}
+  }
 
-componentDidMount() {
+  componentDidMount() {
     this.startWatch();
-}
-componentWillMount() {
+  }
+
+  componentWillUnmount() {
     clearInterval(this.interval);
-}
+  }
 
   render() {
 

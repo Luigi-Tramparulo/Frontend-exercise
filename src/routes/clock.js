@@ -20,11 +20,8 @@ const clocks = [
 ];
 
 class Clock extends Component {
-  getClocks() {
-    return clocks.map((clock) => {
-     return <Time secs={clock.secs} country={clock.country} timezone={clock.timezone} />
-   });
-  }
+  getClocks = () => clocks.map((clock, i) => <Time key={i} secs={clock.secs} country={clock.country} timezone={clock.timezone} />);
+
   render() {
     return (
       <div>
