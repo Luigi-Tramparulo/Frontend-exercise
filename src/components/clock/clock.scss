@@ -1,0 +1,11 @@
+@mixin changeTime($selector,$timing,$rotation) {
+  @for $i from 1 through $timing {
+    #{$selector+$i} {
+        transform: translateX(-50%) rotate(#{$rotation*$i}deg);
+        }
+  }
+}
+@include changeTime(".minutes",59 ,6 );
+@include changeTime(".sec",59 ,6 );
+@include changeTime(".hour",12 ,30 );
+

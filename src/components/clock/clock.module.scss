@@ -82,11 +82,14 @@
   width: 10px;
   height: 50%;
   transform-origin: bottom;
-  transform: translateX(-50%);
-
 }
 
 
+// @for $i from 1 through 59 {
+//   .minutes#{$i} {
+//       transform: translateX(-50%) rotate(#{$i*6}deg);
+//       }
+// }
 
     .hour{
       width: 10px;
