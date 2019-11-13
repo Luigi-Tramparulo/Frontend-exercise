@@ -8,8 +8,6 @@ class Time extends Component {
   constructor(props) {
     super(props)
 
-    this.toggleWatch = this.toggleWatch.bind(this);
-
     this.state = {
       timestamp: Date.now(),
       date: new Date(),
@@ -32,12 +30,6 @@ class Time extends Component {
     this.interval = setInterval(this.tick, this.props.secs * 1000);
 
   }
-  toggleWatch(e) {
-    this.setState((state) => {
-      this.state.stopped ? this.startWatch() : clearInterval(this.interval);
-      return { stopped: !state.stopped }
-    })
-  }
 
   componentDidMount() {
     this.startWatch();
@@ -55,18 +47,16 @@ class Time extends Component {
     const d = new Date(this.state.timestamp);
     const tempo = d.getTime() + this.props.timezone * 3600 * 1000;
     const data = new Date(tempo);
-    let sec=d.getSeconds();
-    let min=d.getMinutes();
-    let getHour=d.getHours();
+    let sec=data.getSeconds();
+    let min=data.getMinutes();
+    let getHour=data.getHours();
     let hour = hours => hours <= 12 ? hours : hours-12;
 
 
     return (
       <React.Fragment>
+        <h2 className={style.clock_header}>In {this.props.country} is {data.toLocaleTimeString()}</h2>
       <div className={style.clock_container}>
-        <h2>In {this.props.country} is {data.toLocaleTimeString()}</h2>
-        <button onClick={this.toggleWatch}> {this.state.stopped ? 'Start' : 'Stop'}</button>
-      </div>
       <div className={style.clock}>
       <div className={`${style.hand} ${style.hour} hour${hour(getHour)}`}></div>
       <div className={`${style.minutes} minutes${min} ${style.hand}`}></div>
@@ -83,6 +73,7 @@ class Time extends Component {
       <div className={`${style.number} ${style.number10}`}>10</div>
       <div className={`${style.number} ${style.number11}`}>11</div>
       <div className={`${style.number} ${style.number12}`}>12</div>
+      </div>
       </div>
       </React.Fragment>
     )
