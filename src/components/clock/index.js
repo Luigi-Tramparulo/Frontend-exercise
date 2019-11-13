@@ -55,7 +55,11 @@ class Time extends Component {
     const d = new Date(this.state.timestamp);
     const tempo = d.getTime() + this.props.timezone * 3600 * 1000;
     const data = new Date(tempo);
-    let sec=45;
+    let sec=d.getSeconds()*6;
+    let min=d.getMinutes()*6;
+    let getHour=d.getHours();
+    let hour = a => a <= 12 ? a*30 : (a-12)*30;
+
 
     return (
       <React.Fragment>
@@ -64,8 +68,8 @@ class Time extends Component {
         <button onClick={this.toggleWatch}> {this.state.stopped ? 'Start' : 'Stop'}</button>
       </div>
       <div className={style.clock}>
-      <div className={`${style.hand} ${style.hour}`}></div>
-      <div className={`${style.hand} ${style.minutes}`}></div>
+      <div style={{transform: `rotate(${hour(getHour)}deg)`}} className={`${style.hand} ${style.hour}`}></div>
+      <div style={{transform: `rotate(${min}deg)`}} className={`${style.hand} ${style.minutes}`}></div>
       <div style={{transform: `rotate(${sec}deg)`}} className={`${style.hand} ${style.sec}`}></div>
       <div className={`${style.number} ${style.number1}`}>1</div>
       <div className={`${style.number} ${style.number2}`}>2</div>
