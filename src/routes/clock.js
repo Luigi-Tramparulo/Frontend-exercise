@@ -8,12 +8,12 @@ const clocks = [
     timezone: 0
   },
   {
-    secs: 2,
+    secs: 1,
     country: "Lisbona",
-    timezone: 1
+    timezone: -1
   },
   {
-    secs: 3,
+    secs: 1,
     country: "Cuba",
     timezone: -6
   }
@@ -24,7 +24,7 @@ class Clock extends Component {
 
   render() {
     return (
-      <div>
+      <div className="clock-container">
         {this.getClocks()}
       </div>
     );

@@ -55,8 +55,10 @@ class Time extends Component {
 
     return (
       <React.Fragment>
-        <h2 className={style.clock_header}>In {this.props.country} is {data.toLocaleTimeString()}</h2>
       <div className={style.clock_container}>
+      <div className={style.clock_header}>
+        <h2>In {this.props.country} is {data.toLocaleTimeString()}</h2>
+      </div>
       <div className={style.clock}>
       <div className={`${style.hand} ${style.hour} hour${hour(getHour)}`}></div>
       <div className={`${style.minutes} minutes${min} ${style.hand}`}></div>

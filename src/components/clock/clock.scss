@@ -9,3 +9,8 @@
 @include changeTime(".sec",59 ,6 );
 @include changeTime(".hour",12 ,30 );
 
+.clock-container{
+  display: flex;
+  justify-content: center;
+}
+
