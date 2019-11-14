@@ -1,13 +1,15 @@
-.clock_container{
+.clock_container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 2%;
 }
-.clock_header{
+
+.clock_header {
   display: block;
 }
-.clock{
+
+.clock {
   width: 300px;
   height: 300px;
   background-color: rgb(240, 255, 241);
@@ -26,10 +28,11 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
-.number1{
+.number1 {
   --rotation: 30deg;
 }
-.number2{
+
+.number2 {
   --rotation: 60deg;
 }
 .number3{
@@ -86,6 +89,22 @@
   height: 50%;
   transform-origin: bottom;
 }
+
+@mixin changeTime($selector,$timing,$rotation) {
+  @for $i from 1 through $timing {
+    #{$selector+$i} {
+        transform: translateX(-50%) rotate(#{$rotation*$i}deg);
+        }
+  }
+}
+@include changeTime(".minutes",59 ,6 );
+@include changeTime(".sec",59 ,6 );
+@include changeTime(".hour",12 ,30 );
+
+
+
+
+
 
 
 // @for $i from 1 through 59 {
