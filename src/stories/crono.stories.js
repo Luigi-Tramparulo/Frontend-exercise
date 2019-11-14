@@ -1,4 +1,5 @@
 import React from 'react';
-import {Timer} from '../routes/timer';
+import {storiesOf} from "@storybook/react";
+import Timer from '../routes/timer';
 
-export default {title : 'Timer'}
+storiesOf("Timer", module).add("time", () =>( <Timer /> ));

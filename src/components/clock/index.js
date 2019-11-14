@@ -76,3 +76,6 @@ class Time extends Component {
 }
 
 export default Time
+
+const test = "test"
+export {test};
