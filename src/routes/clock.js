@@ -8,26 +8,23 @@ const clocks = [
     timezone: 0
   },
   {
-    secs: 2,
+    secs: 1,
     country: "Lisbona",
-    timezone: 1
+    timezone: -1
   },
   {
-    secs: 3,
+    secs: 1,
     country: "Cuba",
     timezone: -6
   }
 ];
 
 class Clock extends Component {
-  getClocks() {
-    return clocks.map((clock) => {
-     return <Time secs={clock.secs} country={clock.country} timezone={clock.timezone} />
-   });
-  }
+  getClocks = () => clocks.map((clock, i) => <Time key={i} secs={clock.secs} country={clock.country} timezone={clock.timezone} />);
+
   render() {
     return (
-      <div>
+      <div id="clock-route-container">
         {this.getClocks()}
       </div>
     );

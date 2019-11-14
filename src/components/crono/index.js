@@ -11,7 +11,7 @@ class Crono extends Component {
       minutes: 0,
       secs: 0,
       stopped: true,
-      buttonstate: "start"
+      buttonstate: "start",
     }
   }
 
@@ -50,7 +50,8 @@ class Crono extends Component {
   }
 
   startWatch() {
-    setInterval(this.tickMillisecs, 10);
+    this.IntervalId = setInterval(this.tickMillisecs, 10);
+    this.setState({ IntervalId: this.IntervalId })
   }
 
   clearWatch = () => {
@@ -65,6 +66,10 @@ class Crono extends Component {
 
   componentDidMount() {
     this.startWatch();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.IntervalId)
   }
 
   componentDidUpdate() {
