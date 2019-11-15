@@ -18,13 +18,13 @@ function App() {
         <nav>
           <ul>
             <li>
-              <NavLink to="/clock" activeStyle={{ fontWeight: "bold", color: "black" }}>Go to clock</NavLink>
+              <NavLink to="/clock" activeClassName="selected" >Go to clock</NavLink>
             </li>
             <li>
-              <NavLink to="/timer" activeStyle={{ fontWeight: "bold", color: "black" }} > Go to Timer </NavLink>
+              <NavLink to="/timer" activeClassName="selected" > Go to Timer </NavLink>
             </li>
             <li>
-              <NavLink to="/film" activeStyle={{ fontWeight: "bold", color: "black" }} > Go to Film </NavLink>
+              <NavLink to="/film" activeClassName="selected" > Go to Film </NavLink>
             </li>
           </ul>
           </nav>
