@@ -1,12 +1,16 @@
 import React, {Component} from 'react';
-import FilmCards from '../components/film'
+import FilmCards from '../components/film';
 
 
 class Film extends Component {
 
   render() {
     return (
-      <FilmCards><p>oooo</p></FilmCards>
+      <React.Fragment>
+      <FilmCards namefilm="joker"></FilmCards>
+      <FilmCards namefilm="Titanic"></FilmCards>
+      </React.Fragment>
+
     );
   }
 }

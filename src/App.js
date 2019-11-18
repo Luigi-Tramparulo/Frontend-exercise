@@ -6,6 +6,7 @@ import Film from './routes/film';
 import { NavLink, BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 function App() {
