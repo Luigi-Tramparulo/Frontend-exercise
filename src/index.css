@@ -14,7 +14,7 @@ code {
     monospace;
 }
 
-#clock-route-container {
+#clock-route-container, #film-route-container {
   display: flex;
   justify-content: center;
 }

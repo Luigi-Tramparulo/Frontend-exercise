@@ -6,11 +6,15 @@ class Film extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <>
+      <h2 className="text-center p-5">Scegli il tuo film preferito</h2>
+      <div className="container">
+      <div className="row">
       <FilmCards namefilm="joker"></FilmCards>
       <FilmCards namefilm="Titanic"></FilmCards>
-      </React.Fragment>
-
+      </div>
+      </div>
+      </>
     );
   }
 }
