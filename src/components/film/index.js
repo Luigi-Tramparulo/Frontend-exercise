@@ -25,8 +25,9 @@ class FilmCards extends Component {
 
       axios.get(`http://www.omdbapi.com/?apikey=ac9b1a49&t=${namefilm}`)
         .then(({ data }) => {
+        const {Title} = data
           this.setState(({
-            title: data["Title"],
+            title: Title,
             source: data["Poster"],
             year: data["Year"],
             runtime: data["Runtime"],
@@ -50,13 +51,12 @@ class FilmCards extends Component {
 
   render() {
 
-    const { title, source, year, runtime, plot, link } = this.state;
 
     // passo alla funzione importata 5 parametri con titolo e link esterno per la copertina
 
     return (
       <div className="col">
-        <CardFilm source={source} title={title} year={year} runtime={runtime} plot={plot} link={link} />
+        <CardFilm { ...this.state} />
       </div>
     );
   }
