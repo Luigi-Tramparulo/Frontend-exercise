@@ -1,5 +1,6 @@
 import { configure } from '@storybook/react';
 import { setConsoleOptions } from '@storybook/addon-console';
+import 'bootstrap/dist/css/bootstrap.css';
 
 setConsoleOptions({
 panelExclude: [],

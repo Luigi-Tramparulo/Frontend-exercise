@@ -4,5 +4,9 @@
   border-bottom: 2px solid red ;
 }
 
+.selected{
+  color: red;
+}
+
 
 
