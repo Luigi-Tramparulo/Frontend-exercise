@@ -7,6 +7,13 @@
 .selected{
   color: red;
 }
+.active{
+  display: block;
+}
+
+.not-active{
+  display: none;
+}
 
 
 

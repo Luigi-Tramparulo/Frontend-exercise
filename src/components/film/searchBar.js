@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CardFilm from './cardfilm';
 
 class Search extends Component {
 
@@ -11,33 +10,42 @@ class Search extends Component {
   }
   handleChange = (e) => {
     let inputDigit = e.target.value;
-    this.setState({ input: inputDigit.toLowerCase() })
+    this.setState({ input: inputDigit })
   }
+
+  componentDidUpdate(oldProps) {
+    if (oldProps.namefilm != this.props.namefilm) {
+      this.setState({ input: this.props.namefilm })
+    }
+  }
+
 
   render() {
 
-    const { elements, setNameFilm } = this.props;
+
+    const { elements, setNameFilm, setClass, namefilm, resetFilm } = this.props;
     const { input } = this.state;
 
     return (
       <div>
-        <form className="form-inline my-2 my-lg-0">
+        <form key={namefilm} className="form-inline my-2 my-lg-0">
           <input className="form-control mr-sm-2"
-            type="search"
             placeholder="Search"
             aria-label="Search"
+            value={input}
             onChange={this.handleChange} />
+          <button type="button" className="btn btn-outline-primary" onClick={resetFilm}>Reset</button>
         </form>
         <ul>
           {
             elements
-              .filter( element => {
+              .filter(element => {
                 const elementLow = element.toLowerCase();
-                if (elementLow.startsWith(input) && input && input.length > 3) {
+                if (elementLow.startsWith(input.toLowerCase()) && input && input.length > 3) {
                   return true
                 }
               })
-              .map( (filtred,i) => (<li onClick={() => setNameFilm(filtred)} key={i}>{filtred}</li>))
+              .map((filtred, i) => (<li className={setClass ? 'active' : 'not-active'} onClick={() => setNameFilm(filtred)} key={i}>{filtred}</li>))
           }
         </ul>
       </div>
