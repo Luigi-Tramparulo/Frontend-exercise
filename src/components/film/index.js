@@ -46,7 +46,7 @@ class FilmCards extends Component {
     )
   }
   componentDidMount() {
-    this.requiredFilm(this.props.namefilm)
+    this.requiredFilm(this.props.setNameFilm)
   }
 
   render() {
