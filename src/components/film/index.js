@@ -51,12 +51,13 @@ class FilmCards extends Component {
 
   render() {
 
+    const {namefilm} =this.props;
 
     // passo alla funzione importata 5 parametri con titolo e link esterno per la copertina
 
     return (
       <div className="col">
-        <CardFilm {...this.state} />
+        <CardFilm {...this.state} routes={namefilm} />
       </div>
     );
   }

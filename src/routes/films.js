@@ -6,7 +6,7 @@ import FilmCards from '../components/film';
 const films = ["joker", "titanic", "Star Wars", "Avengers", "Thor", "Rocky", "The Wolverine", "X-Men"];
 
 
-class Film extends Component {
+class Films extends Component {
 
   constructor(props) {
     super(props)
@@ -14,7 +14,6 @@ class Film extends Component {
     this.state = {
       namefilm: '',
       visible: true,
-
     }
   }
 
@@ -34,9 +33,7 @@ class Film extends Component {
 
   render() {
 
-    const { namefilm, visible } = this.state;
-
-
+    const { namefilm, visible, path } = this.state;
 
     return (
       <>
@@ -61,4 +58,4 @@ class Film extends Component {
   }
 }
 
-export default Film;
+export default Films;

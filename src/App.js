@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Clock from './routes/clock';
 import Timer from './routes/timer';
-import Film from './routes/film';
+import Films from './routes/films';
+import PageFilms from './routes/pageFilm'
 import { NavLink, BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-function App() {
+class App extends Component {
+
+  render(){
 
   return (
 
@@ -32,12 +35,14 @@ function App() {
           <Switch>
             <Route exact path="/clock" component={Clock} />
             <Route exact path="/timer" component={Timer} />
-            <Route exact path="/film" component={Film} />
+            <Route exact path="/films" component={Films} />
+            <Route exact path="/films/:id" component={PageFilms} />
           </Switch>
         </div>
       </BrowserRouter>
     </div>
   );
+}
 }
 
 export default App;
