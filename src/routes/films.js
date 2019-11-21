@@ -33,7 +33,7 @@ class Films extends Component {
 
   render() {
 
-    const { namefilm, visible, path } = this.state;
+    const { namefilm, visible} = this.state;
 
     return (
       <>

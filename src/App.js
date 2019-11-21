@@ -26,7 +26,7 @@ class App extends Component {
                 <NavLink to="/timer" activeClassName="selected" > Go to Timer </NavLink>
               </li>
               <li>
-                <NavLink to="/film" activeClassName="selected" > Go to Film </NavLink>
+                <NavLink to="/films" activeClassName="selected" > Go to Film </NavLink>
               </li>
             </ul>
           </nav>

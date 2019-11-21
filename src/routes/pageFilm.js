@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import PageFilm from '../components/film/pageFilm';
-//import {useParams} from "react-router-dom";
-
+import Films from '../components/film/sheduleFilm'
 
 class PageFilms extends Component {
 
@@ -14,12 +12,9 @@ class PageFilms extends Component {
     let { id } = this.props.match.params
 
     return (
-      <>
-      {
-        id
-      }
-      <PageFilm/>
-      </>
+      <div>
+      <Films namefilm={id}/>
+      </div>
     );
   }
 }
