@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'reactstrap';
 import axios from 'axios';
+import StarRatingComponent from 'react-star-rating-component';
 
 
 class scheduleFilm extends Component {
@@ -14,6 +15,9 @@ class scheduleFilm extends Component {
       runtime: 'runtime',
       plot: 'plot',
       link: 'link',
+      director: 'director',
+      writer: 'writer',
+      actors: 'actors',
       loading: true
     }
   }
@@ -29,7 +33,9 @@ class scheduleFilm extends Component {
             year: data["Year"],
             runtime: data["Runtime"],
             plot: data["Plot"],
-            link: data.imdbID,
+            director: data["Director"],
+            writer: data["Writer"],
+            actors: data["Actors"],
             loading: false
           }))
         }
@@ -49,7 +55,7 @@ class scheduleFilm extends Component {
 
   render() {
 
-    const { title, year, plot, source, loading } = this.state
+    const { title, year, plot, source, loading, runtime, director, writer, actors } = this.state
 
     return (
 
@@ -58,13 +64,22 @@ class scheduleFilm extends Component {
         {loading ? <div className="spinner-border" role="status"><span className="sr-only"></span></div> : null}
 
         <Jumbotron>
-          <h1 className="display-3">{title}</h1>
+          <h1 className="display-2">{title}</h1>
           <img src={source} width="50%" alt={title} />
-          <p className="lead">{year}</p>
+          <p className="nameBold">{`Year of release:${year} Duration:${runtime}`}</p>
+
+          <StarRatingComponent
+            name="Rating Film"
+            editing={false}
+            starColor="f3ce00"
+            starCount={5}
+            value={1}
+          />
           <hr className="my-2" />
           <p>{plot}</p>
-          <p className="lead">
-          </p>
+          <p className="nameBold">Director: <span className="name-blue-normal">{director}</span></p>
+          <p className="nameBold">Writers: <span className="name-blue-normal">{writer}</span></p>
+          <p className="nameBold">Stars: <span className="name-blue-normal">{actors}</span></p>
         </Jumbotron>
       </div>
 

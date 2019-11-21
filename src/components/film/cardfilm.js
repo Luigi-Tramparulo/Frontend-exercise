@@ -11,7 +11,7 @@ const CardFilm = ({ title, source, year, runtime, plot, routes }) => (
       <CardTitle className="font-weight-bold">{title}</CardTitle>
       <CardSubtitle className="font-weight-bold text-secondary">{`Year:${year} Runtime${runtime}`}</CardSubtitle>
       <CardText>{plot}</CardText>
-      <Button className="btn-dark" href={`/films/:${routes}`}>Vedi i dettagli</Button>
+      <Button className="btn-dark" href={`/films/${routes}`}>Vedi i dettagli</Button>
     </CardBody>
   </Card>
 )
