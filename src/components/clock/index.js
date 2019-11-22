@@ -46,6 +46,7 @@ class Time extends Component {
     let getHour = data.getHours();
     let hour = hours => hours <= 12 ? hours : hours - 12;
 
+
     return (
       <>
         <div className={style.clock_container}>
@@ -53,7 +54,7 @@ class Time extends Component {
             <h2>In {this.props.country} is {data.toLocaleTimeString()}</h2>
           </div>
           <div className={style.clock}>
-            <div className={`${style.hand} ${style[`hour'${hour(getHour)}`]} hour${hour(getHour)}`}></div>
+            <div className={`${style.hand} ${style[`hour${hour(getHour)}`]} ${style.hand}`}></div>
             <div className={`${style.minutes} ${style[`minutes${min}`]} ${style.hand}`}></div>
             <div className={`${style.sec} ${style[`sec${sec}`]} ${style.hand}`}></div>
             <div className={`${style.number} ${style.number1}`}>1</div>
