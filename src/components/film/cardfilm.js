@@ -6,7 +6,7 @@ import {
 
 const CardFilm = ({ title, source, year, runtime, plot, routes }) => (
   <Card>
-    <CardImg top width="100%" src={source} alt={title} />
+    <CardImg width="40%" src={source} alt={title} />
     <CardBody>
       <CardTitle className="font-weight-bold">{title}</CardTitle>
       <CardSubtitle className="font-weight-bold text-secondary">{`Year:${year} Runtime${runtime}`}</CardSubtitle>

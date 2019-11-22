@@ -18,6 +18,7 @@ class scheduleFilm extends Component {
       director: 'director',
       writer: 'writer',
       actors: 'actors',
+      rating: 1,
       loading: true
     }
   }
@@ -36,6 +37,7 @@ class scheduleFilm extends Component {
             director: data["Director"],
             writer: data["Writer"],
             actors: data["Actors"],
+            rating: data.imdbRating,
             loading: false
           }))
         }
@@ -55,7 +57,7 @@ class scheduleFilm extends Component {
 
   render() {
 
-    const { title, year, plot, source, loading, runtime, director, writer, actors } = this.state
+    const { title, year, plot, source, loading, runtime, director, writer, actors, rating } = this.state
 
     return (
 
@@ -80,7 +82,7 @@ class scheduleFilm extends Component {
                 editing={false}
                 starColor={"#f3ce00"}
                 starCount={5}
-                value={2}
+                value={Math.floor(rating)/2}
               />
               </div>
             </div>
