@@ -64,22 +64,33 @@ class scheduleFilm extends Component {
         {loading ? <div className="spinner-border" role="status"><span className="sr-only"></span></div> : null}
 
         <Jumbotron>
-          <h1 className="display-2">{title}</h1>
-          <img src={source} width="50%" alt={title} />
-          <p className="nameBold">{`Year of release:${year} Duration:${runtime}`}</p>
 
-          <StarRatingComponent
-            name="Rating Film"
-            editing={false}
-            starColor="f3ce00"
-            starCount={5}
-            value={1}
-          />
-          <hr className="my-2" />
-          <p>{plot}</p>
-          <p className="nameBold">Director: <span className="name-blue-normal">{director}</span></p>
-          <p className="nameBold">Writers: <span className="name-blue-normal">{writer}</span></p>
-          <p className="nameBold">Stars: <span className="name-blue-normal">{actors}</span></p>
+          <h1 className="text-center color-gold">{title}</h1>
+          <div className="d-flex  flex-column justify-content-center">
+            <div className="d-flex p-3 justify-content-center">
+              <img src={source} width="40%" alt={title} />
+            </div>
+            <div className="pt-3 d-flex flex-column">
+            <div className="d-flex p-1 justify-content-center">
+              <p className="name-bold">{`Year of release:${year} Duration:${runtime}`}</p>
+            </div>
+              <div className="d-flex p-1 justify-content-center">
+              <StarRatingComponent
+                name={"Rating Film"}
+                editing={false}
+                starColor={"#f3ce00"}
+                starCount={5}
+                value={2}
+              />
+              </div>
+            </div>
+            </div>
+          <hr className="my-2 pb-3" />
+          <h3 className="pb-3">Plot</h3>
+          <p className="pb-3">{plot}</p>
+          <p className="name-bold color-grey">Director: <span className="name-normal color-blue">{director}</span></p>
+          <p className="name-bold color-grey">Writers: <span className="name-normal color-blue">{writer}</span></p>
+          <p className="name-bold color-grey">Stars: <span className="name-normal color-blue">{actors}</span></p>
         </Jumbotron>
       </div>
 
