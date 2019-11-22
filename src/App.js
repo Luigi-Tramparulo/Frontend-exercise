@@ -1,19 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Clock from './routes/clock';
 import Timer from './routes/timer';
 import Films from './routes/films';
-import PageFilms from './routes/pageFilm'
+import Film from './routes/film'
 import { NavLink, BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-class App extends Component {
+const App = () =>
 
-  render(){
-
-  return (
-
+  (
     <div className="App">
       <BrowserRouter>
         <header className="App-header">
@@ -36,13 +33,12 @@ class App extends Component {
             <Route exact path="/clock" component={Clock} />
             <Route exact path="/timer" component={Timer} />
             <Route exact path="/films" component={Films} />
-            <Route exact path="/films/:id" component={PageFilms} />
+            <Route exact path="/films/:id" component={Film} />
           </Switch>
         </div>
       </BrowserRouter>
     </div>
-  );
-}
-}
+  )
+
 
 export default App;

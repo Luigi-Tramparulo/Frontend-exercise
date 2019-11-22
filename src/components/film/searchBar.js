@@ -14,7 +14,7 @@ class Search extends Component {
   }
 
   componentDidUpdate(oldProps) {
-    if (oldProps.namefilm != this.props.namefilm) {
+    if (oldProps.namefilm !== this.props.namefilm) {
       this.setState({ input: this.props.namefilm })
     }
   }
@@ -44,6 +44,7 @@ class Search extends Component {
                 if (elementLow.startsWith(input.toLowerCase()) && input && input.length > 3) {
                   return true
                 }
+                else{return false}
               })
               .map((filtred, i) => (<li className={setClass ? 'active' : 'not-active'} onClick={() => setNameFilm(filtred)} key={i}>{filtred}</li>))
           }
