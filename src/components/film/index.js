@@ -25,7 +25,7 @@ class FilmCards extends Component {
 
       axios.get(`http://www.omdbapi.com/?apikey=ac9b1a49&t=${namefilm}`)
         .then(({ data }) => {
-        const {Title} = data
+          const { Title } = data
           this.setState(({
             title: Title,
             source: data["Poster"],
@@ -51,12 +51,13 @@ class FilmCards extends Component {
 
   render() {
 
+    const {namefilm} =this.props;
 
     // passo alla funzione importata 5 parametri con titolo e link esterno per la copertina
 
     return (
       <div className="col">
-        <CardFilm { ...this.state} />
+        <CardFilm {...this.state} routes={namefilm} />
       </div>
     );
   }

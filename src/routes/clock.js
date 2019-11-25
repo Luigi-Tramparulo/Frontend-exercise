@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Time from '../components/clock';
 
 const clocks = [
@@ -19,17 +19,12 @@ const clocks = [
   }
 ];
 
-class Clock extends Component {
+const getClocks = () => clocks.map((clock, i) => <Time key={i} {...clock} />);
 
-  getClocks = () => clocks.map((clock, i) => <Time key={i} secs={clock.secs} country={clock.country} timezone={clock.timezone} />);
-
-  render() {
-    return (
-      <div id="clock-route-container">
-        {this.getClocks()}
-      </div>
-    );
-  }
-}
+const Clock = () => (
+  <div id="clock-route-container">
+    {getClocks()}
+  </div>
+);
 
 export default Clock;

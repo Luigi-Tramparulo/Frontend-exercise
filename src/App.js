@@ -1,16 +1,16 @@
 import React from 'react';
 import Clock from './routes/clock';
 import Timer from './routes/timer';
-import Film from './routes/film';
+import Films from './routes/films';
+import Film from './routes/film'
 import { NavLink, BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-function App() {
+const App = () =>
 
-  return (
-
+  (
     <div className="App">
       <BrowserRouter>
         <header className="App-header">
@@ -23,7 +23,7 @@ function App() {
                 <NavLink to="/timer" activeClassName="selected" > Go to Timer </NavLink>
               </li>
               <li>
-                <NavLink to="/film" activeClassName="selected" > Go to Film </NavLink>
+                <NavLink to="/films" activeClassName="selected" > Go to Film </NavLink>
               </li>
             </ul>
           </nav>
@@ -32,12 +32,13 @@ function App() {
           <Switch>
             <Route exact path="/clock" component={Clock} />
             <Route exact path="/timer" component={Timer} />
-            <Route exact path="/film" component={Film} />
+            <Route exact path="/films" component={Films} />
+            <Route exact path="/films/:id" component={Film} />
           </Switch>
         </div>
       </BrowserRouter>
     </div>
-  );
-}
+  )
+
 
 export default App;

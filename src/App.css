@@ -7,6 +7,33 @@
 .selected{
   color: red;
 }
+.active{
+  display: block;
+}
+
+.not-active{
+  display: none;
+}
+.name-bold{
+  font-size: 1rem;
+  font-weight: bold;
+}
+.color-grey{
+  color: #66667C;
+}
+.name-normal{
+  font-weight: normal;
+}
+.color-blue{
+  color: #136CB2;
+}
+.color-gold{
+  color: #f3ce00;
+}
+.dv-star-rating-full-star i, .dv-star-rating-empty-star i{
+  font-size:1.5rem;
+}
+
 
 
 
