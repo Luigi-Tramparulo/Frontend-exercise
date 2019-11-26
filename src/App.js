@@ -2,7 +2,8 @@ import React from 'react';
 import Clock from './routes/clock';
 import Timer from './routes/timer';
 import Films from './routes/films';
-import Film from './routes/film'
+import Film from './routes/film';
+import Carousel from './routes/carousel'
 import { NavLink, BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -25,6 +26,9 @@ const App = () =>
               <li>
                 <NavLink to="/films" activeClassName="selected" > Go to Film </NavLink>
               </li>
+              <li>
+                <NavLink to="/carousel" activeClassName="selected" > Carousel </NavLink>
+              </li>
             </ul>
           </nav>
         </header>
@@ -34,6 +38,7 @@ const App = () =>
             <Route exact path="/timer" component={Timer} />
             <Route exact path="/films" component={Films} />
             <Route exact path="/films/:id" component={Film} />
+            <Route exact path="/carousel" component={Carousel} />
           </Switch>
         </div>
       </BrowserRouter>
