@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from "@storybook/react";
 import Clock from "../components/clock";
-import { withKnobs } from '@storybook/addon-knobs/react';
+import { withKnobs, number, text } from '@storybook/addon-knobs/react';
 
 
-const cuba = {
+const Cuba = {
   secs: 1,
   country: "Cuba",
   timezone: -6
@@ -15,10 +15,16 @@ const italy = {
   timezone: -3
 }
 
+const {secs,country,timezone}=Cuba
+
+
+
 storiesOf("Clock", module)
   .addDecorator(withKnobs)
-  .addDecorator(story => <div style={{ color: 'red' }}>{story()}</div>)
-  .add("cuba", () => (<Clock {...cuba} />));
+  .add("cuba", () =>{
+    return (<Clock secs={number("secs",secs)} country={text("country", country)} timezone={number("timezone",timezone)} />)
+  })
+
 
 storiesOf("Clock", module)
   .addDecorator(story => <div style={{ color: 'green' }}>{story()}</div>)

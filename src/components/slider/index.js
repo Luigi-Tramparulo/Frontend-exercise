@@ -28,7 +28,8 @@ class Slider extends Component {
 
 
     return (
-      <div id={style.wrapper}>
+      <div>
+      <h2 className={style.title}>_Progetti Correlati</h2>
 
         <div id={style.slider} ref={this._slider}>
 
