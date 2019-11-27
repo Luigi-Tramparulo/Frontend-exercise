@@ -1,21 +1,36 @@
-import React, { Component } from 'react';
-import style from './slider.module.scss'
+import React, { Component, Children } from 'react';
+import style from './slider.module.scss';
+import Input from './input';
 
 class Slider extends Component {
-  componentDidMount() {
-    debugger
-    window.$(`#${style.slider}`)
-      .niceScroll({
-        cursorcolor: "black",
-        cursorfixedheight: "10",
-        cursorwidth: "10px",
-        cursorborderradius: "10px",
-      });
-  }
+  constructor(props){
+    super(props)
+    this.state={
+      maxOffset: null
+    }
 
+  }
+  changeOffset = (event) =>{
+    const {target:{value}} =event
+    this._slider.scrollLeft=value;
+
+   }
+  componentDidMount(){
+    const container = document.getElementById(`${style.slider}`).clientWidth;
+    console.log(container)
+    const maxItems=document.querySelectorAll(`.${style.items}`).length;
+    const maxLenght= maxItems * 500;
+    const maxOffset= maxLenght - container
+    this.setState({maxOffset});
+    console.log(this._slider)
+  }
   render() {
+    const { maxOffset }=this.state
+
+
     return (
-      <div id={style.slider}>
+      <div id={style.wrapper}>
+      <div id={style.slider} ref={div=>this._slider=div}>
         <div className={style.items}>
           <img src="https://live.staticflickr.com/3651/3364033063_73b68b273e.jpg" alt="mountain" />
         </div>
@@ -29,9 +44,12 @@ class Slider extends Component {
           <img src="https://farm5.staticflickr.com/4556/24708106728_ce5296f1f9_b.jpg" alt="mountain4" />
         </div>
         <div className={style.items}>
-          <img src="https://farm5.staticflickr.com/4565/38559581986_b5103966fd_b.jpg" alt="mountain5" />
-        </div>
+          <img src="https://farm5.staticflickr.com/4565/38559581986_b5103966fd_b.jpg" alt="mountain5" />        </div>
+
       </div>
+      <Input maxWidth={ maxOffset } onInput={this.changeOffset} />
+      </div>
+
     )
   }
 }
