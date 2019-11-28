@@ -12,7 +12,7 @@ const Input = (props) => {
 }
 
 Input.propTypes = {
-  maxWidth: PropTypes.string
+  maxWidth: PropTypes.number
 }
 
 export default Input
