@@ -1,33 +1,35 @@
 import React, { Component } from 'react';
+import Range from './range';
+import Slide from './slide';
 import style from './slider.module.scss';
-import Input from './input';
-import BoxImg from './boxImg';
 
 class Slider extends Component {
   constructor(props) {
     super(props)
     this._slider= React.createRef();
     this.state = {
-      maxOffset: null
+      maxOffset: 0,
+      offset: 0
     }
   }
 
-  changeOffset = (event) => {
+  changeOffset = event => {
     const { target: { value } } = event
     this._slider.current.scrollLeft = value;
+    this.setState({ offset: parseInt(value) })
   }
+
   componentDidMount() {
-    const container = this._slider.current.clientWidth;
-    const maxItems = this._slider.current.children.length;
-    const maxLenght = maxItems * 356;
-    const maxOffset = maxLenght - container
+    const containerWidth = this._slider.current.clientWidth;
+    const items = this._slider.current.children.length;
+    // we are assumig that all slides has the same width
+    const maxLenght = items * this._slider.current.children[0].offsetWidth;
+    const maxOffset = maxLenght - containerWidth
     this.setState({ maxOffset });
-    console.log(container)
   }
 
   render() {
-
-    const { maxOffset } = this.state
+    const { maxOffset, offset } = this.state
     const slides = [
       {
         src: "3651/3364033063_73b68b273e.jpg",
@@ -61,13 +63,20 @@ class Slider extends Component {
       },
     ]
 
-    const getBoxImg = () => slides.map(({src,href,text,description},i)=><BoxImg description={description} key={i} src={src} href={href} text={text} altNumb={i} />)
+    const getBoxImg = () =>
+      slides.map( ({src,href,text,description},i) =>
+        <Slide
+          description={description}
+          key={i} src={src}
+          href={href}
+          text={text}
+          altNumb={i} /> )
 
     return (
       <div id="sliderContainer">
-      <h2 className={style.title}>_Progetti Correlati</h2>
+        <h2 className={style.title}>_Progetti Correlati</h2>
         <div className={style.slider} ref={this._slider}>{getBoxImg()}</div>
-        <Input maxWidth={maxOffset} onInput={this.changeOffset} />
+        <Range maxWidth={maxOffset} onInput={this.changeOffset} value={offset}/>
       </div>
     )
   }
