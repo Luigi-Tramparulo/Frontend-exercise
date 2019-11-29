@@ -8,14 +8,12 @@ const {src, altNumb,href,text,description} = props
 const content = "mountain"
 
   return (
-    <div cont="cont" className={style.items}>
-      <div>
+    <div className={style.items}>
+      <div className={style.boxImg}>
       <img src={`https://live.staticflickr.com/${src}`} alt={`${content}${altNumb}`}/>
       <Link to={href}>{text}</Link>
       </div>
-      <div>
-      <p>{description}</p>
-      </div>
+      <p className={style.desc}>{description}</p>
     </div>
   )
 }

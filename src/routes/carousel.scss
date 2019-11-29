@@ -39,11 +39,11 @@ $maxWidthSm: 296px;
 {
   #sliderContainer{
     position: absolute;
-    max-width: $maxWidthSm/2;
-    left: calc(50% - #{$maxWidthSm/4});
+    max-width:100%;
+    left: 0;
 
     h2{
-      font-size: 1rem;
+      font-size: 1.4rem;
     }
 
   }

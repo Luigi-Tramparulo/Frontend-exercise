@@ -33,31 +33,31 @@ class Slider extends Component {
         src: "3651/3364033063_73b68b273e.jpg",
         href: "http://google.com",
         text: "Go to project",
-        description: "Lorem ipsum"
+        description: "Lorem ipsum dolor sit amet, onsectetur adipiscing elit. Fusce id laoreet dui. Aliquam interdum orci id porta luctus."
       },
       {
         src: "5735/21226469065_4c2b003f21_b.jpg",
         href: "http://google.com",
         text: "Go to project",
-        description: "Lorem ipsum"
+        description: "Lorem ipsum dolor sit amet, onsectetur adipiscing elit. Fusce id laoreet dui. Aliquam interdum orci id porta luctus."
       },
       {
         src: "737/30973260633_44640a9dcc_b.jpg",
         href: "http://google.com",
         text: "Go to project",
-        description: "Lorem ipsum"
+        description: "Lorem ipsum dolor sit amet, onsectetur adipiscing elit. Fusce id laoreet dui. Aliquam interdum orci id porta luctus."
       },
       {
         src: "4556/24708106728_ce5296f1f9_b.jpg",
         href: "http://google.com",
         text: "Go to project",
-        description: "Lorem ipsum"
+        description: "Lorem ipsum dolor sit amet, onsectetur adipiscing elit. Fusce id laoreet dui. Aliquam interdum orci id porta luctus."
       },
       {
         src: "4565/38559581986_b5103966fd_b.jpg",
         href: "http://google.com",
         text: "Go to project",
-        description: "Lorem ipsum"
+        description: "Lorem ipsum dolor sit amet, onsectetur adipiscing elit. Fusce id laoreet dui. Aliquam interdum orci id porta luctus."
       },
     ]
 
