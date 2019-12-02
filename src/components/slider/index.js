@@ -6,21 +6,18 @@ import style from './slider.module.scss';
 class Slider extends Component {
   constructor(props) {
     super(props)
-    this._slider= React.createRef();
-    this._sliderContainer= React.createRef();
+    this._slider = React.createRef();
+    this._sliderContainer = React.createRef();
     this.state = {
       maxOffset: 0,
       offset: 0
     }
   }
 
-  changeOffset = event => {
-    const { target: { value } } = event
+  changeOffset = value => {
     this._slider.current.scrollLeft = value;
     this.setState({ offset: parseInt(value) })
   }
-
-
 
   componentDidMount() {
 
@@ -38,6 +35,11 @@ class Slider extends Component {
 
     changeMaxOffset();
 
+  }
+
+  componentWillUnmount() {
+
+    window.removeEventListener("resize", this.reportWindowSize)
   }
 
 
@@ -77,19 +79,19 @@ class Slider extends Component {
     ]
 
     const getBoxImg = () =>
-      slides.map( ({src,href,text,description},i) =>
+      slides.map(({ src, href, text, description }, i) =>
         <Slide
           description={description}
           key={i} src={src}
           href={href}
           text={text}
-          altNumb={i} /> )
+          altNumb={i} />)
 
     return (
       <div id="sliderContainer" ref={this._sliderContainer}>
         <h2 className={style.title}>_Progetti Correlati</h2>
-        <div className={style.slider} ref={this._slider}>{getBoxImg()}</div>
-        <Range maxWidth={maxOffset} onInput={this.changeOffset} value={offset}/>
+        <div className={style.slider} ref={this._slider} onScroll={({ target: { scrollLeft: value } }) => { this.changeOffset(value) }}>{getBoxImg()}</div>
+        <Range maxWidth={maxOffset} onInput={({ target: { value } }) => this.changeOffset(value)} value={offset} />
       </div>
     )
   }
