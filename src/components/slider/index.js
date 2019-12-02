@@ -7,6 +7,7 @@ class Slider extends Component {
   constructor(props) {
     super(props)
     this._slider= React.createRef();
+    this._sliderContainer= React.createRef();
     this.state = {
       maxOffset: 0,
       offset: 0
@@ -19,14 +20,26 @@ class Slider extends Component {
     this.setState({ offset: parseInt(value) })
   }
 
+
+
   componentDidMount() {
-    const containerWidth = this._slider.current.clientWidth;
-    const items = this._slider.current.children.length;
-    // we are assumig that all slides has the same width
-    const maxLenght = items * this._slider.current.children[0].offsetWidth;
-    const maxOffset = maxLenght - containerWidth
-    this.setState({ maxOffset });
+
+    const changeMaxOffset = () => {
+      const containerWidth = this._slider.current.clientWidth;
+      const items = this._slider.current.children.length;
+      const maxLenght = items * this._slider.current.children[0].offsetWidth;
+      const maxOffset = maxLenght - containerWidth
+      this.setState({ maxOffset });
+    }
+
+    const reportWindowSize = () => { changeMaxOffset() }
+
+    window.addEventListener("resize", reportWindowSize)
+
+    changeMaxOffset();
+
   }
+
 
   render() {
     const { maxOffset, offset } = this.state
@@ -73,7 +86,7 @@ class Slider extends Component {
           altNumb={i} /> )
 
     return (
-      <div id="sliderContainer">
+      <div id="sliderContainer" ref={this._sliderContainer}>
         <h2 className={style.title}>_Progetti Correlati</h2>
         <div className={style.slider} ref={this._slider}>{getBoxImg()}</div>
         <Range maxWidth={maxOffset} onInput={this.changeOffset} value={offset}/>
