@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import style from './range.module.scss';
 
 const Range = props => {
-  const { maxWidth, onInput, value } = props;
+  const { maxRange, onInput, value } = props;
   return (
     <div className={`${style.range} range`}>
-      <input type="range" min="0" value={value} max={maxWidth} onInput={onInput}/>
+      <input type="range" min="0" value={value} max={maxRange} onInput={onInput}/>
     </div>
   )
 }

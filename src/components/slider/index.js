@@ -21,7 +21,7 @@ class Slider extends Component {
 
   componentDidMount() {
 
-    const changeMaxOffset = () => {
+    const setMaxOffset = () => {
       const containerWidth = this._slider.current.clientWidth;
       const items = this._slider.current.children.length;
       const maxLenght = items * this._slider.current.children[0].offsetWidth;
@@ -29,17 +29,17 @@ class Slider extends Component {
       this.setState({ maxOffset });
     }
 
-    const reportWindowSize = () => { changeMaxOffset() }
+    const maxOffsetOnResize = () => { setMaxOffset() }
 
-    window.addEventListener("resize", reportWindowSize)
+    window.addEventListener("resize", maxOffsetOnResize)
 
-    changeMaxOffset();
+    setMaxOffset();
 
   }
 
   componentWillUnmount() {
 
-    window.removeEventListener("resize", this.reportWindowSize)
+    window.removeEventListener("resize", this.maxOffsetOnResize)
   }
 
 
@@ -91,7 +91,7 @@ class Slider extends Component {
       <div id="sliderContainer" ref={this._sliderContainer}>
         <h2 className={style.title}>_Progetti Correlati</h2>
         <div className={style.slider} ref={this._slider} onScroll={({ target: { scrollLeft: value } }) => { this.changeOffset(value) }}>{getBoxImg()}</div>
-        <Range maxWidth={maxOffset} onInput={({ target: { value } }) => this.changeOffset(value)} value={offset} />
+        <Range maxRange={maxOffset} onInput={({ target: { value } }) => this.changeOffset(value)} value={offset} />
       </div>
     )
   }
