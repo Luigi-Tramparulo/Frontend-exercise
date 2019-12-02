@@ -1,8 +1,12 @@
 .slider {
   display: flex;
-  overflow-x: hidden;
+  overflow-x: auto;
   align-items: center;
   margin: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+    }
 }
 
 .title {
@@ -10,3 +14,5 @@
   font-family:'Noto Sans JP', sans-serif;
   padding : 15px 0 15px 7.5px
 }
+
+

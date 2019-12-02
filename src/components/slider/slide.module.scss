@@ -5,9 +5,15 @@ $imgHeigth: 296px;
 .slide {
   padding: 15px 7.5px;
 
-  &:hover, &:focus {
+  &:hover , &:focus {
+    .boxImg img{
       opacity: 0.7;
       cursor: pointer;
+    }
+
+      .boxImg a{
+        opacity: 1;
+      }
   }
 
   .boxImg {
@@ -29,6 +35,8 @@ $imgHeigth: 296px;
       font-family:'Noto Sans JP', sans-serif;
       color: black;
       z-index: 10;
+      opacity: 0;
+      text-decoration: none;
     }
   }
 
@@ -54,6 +62,7 @@ $imgHeigth: 296px;
         left: 25%;
         background-color: white;
         text-align: center;
+        opacity: 1;
       }
     }
 
